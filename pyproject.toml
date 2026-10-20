@@ -1,0 +1,14 @@
+[project]
+name = "rfc-5322-email-address-parser"
+version = "0.1.0"
+description = "Parses RFC 5322 email addresses and display names into structured data, including comments and domain literals."
+requires-python = ">=3.10"
+dependencies = []
+readme = "README.md"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
