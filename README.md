@@ -34,3 +34,10 @@ Email header values mix structured grammar (addr-spec, angle-addr) with free-for
 - `parse_addr_spec(text) -> str` — parse a bare addr-spec, re-quoting the local part if necessary.
 - `EmailAddressParseError` — raised on malformed input (subclass of `ValueError`).
 - `EmailAddressParseResult` — frozen dataclass with fields `display_name`, `local_part`, `domain`, `addr_spec`.
+
+## Performance
+
+The window keeps a bounded buffer, so `push` is constant time and memory does not
+grow with the length of the stream. `peak` and `trough` are linear in the window
+size, which is the trade that keeps `push` cheap.
+
